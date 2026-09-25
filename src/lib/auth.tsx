@@ -32,7 +32,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       value={{
         user,
         ready,
-        signIn: async (email) => { await wait(); save({ name: email.split("@")[0], email }); },
+        signIn: async (email) => { await wait(); save({ name: email.split("@")[0] ?? email, email }); },
         signUp: async (name, email) => { await wait(); save({ name, email }); },
         signInWithGoogle: async () => { await wait(); save({ name: "Farmer", email: "farmer@gmail.com" }); },
         signOut: () => save(null),
